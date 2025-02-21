@@ -9,11 +9,17 @@ export default defineConfig({
     federation({
       name: "host",
       remotes: {
-        header: "http://localhost:5001/assets/remoteEntry.js",
-        container: "http://localhost:5002/assets/remoteEntry.js",
-        footer: "http://localhost:5003/assets/remoteEntry.js",
+        header: "http://localhost:4174/assets/remoteEntry.js",
+        container: "http://localhost:4175/assets/remoteEntry.js",
+        footer: "http://localhost:4176/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
   ],
+  build: {
+    modulePreload: false,
+    target: 'esnext',
+    minify: false,
+    cssCodeSplit: false
+  }
 });
